@@ -1,0 +1,76 @@
+<div class="row">
+    <div>
+        <snap-drawer>
+            <div class=snap-menu> 
+                <div class="sidebar-header text-center"> 
+                    <img src=img/flat-avatar.png class="sidebar-img img-circle"> 
+                </div>
+                <ul class=snap-ul> 
+                    <li ng-class="{active: $state.includes('overview')}"><a ui-sref=dashboard>HOME</a></li> 
+                    <li ng-class="{active: $state.includes('reports')}"><a ui-sref=reports>reports</a></li> 
+                    <li ng-class="{active: $state.includes('contact_list')}"><a ui-sref=contact_list>Patient List</a></li> 
+                    <li><a ui-sref=login>LOGOUT</a></li>  
+                </ul> 
+            </div> 
+        </snap-drawer> 
+        <snap-dragger></snap-dragger> 
+    </div>
+    <snap-content snap-opt-tap-to-close=false>
+        <a snap-toggle=left ng-click="menuOpen = !menuOpen">
+            <span class=menutoggle> 
+                <i ng-hide=menuOpen class="fa fa-bars fa-2x"></i> 
+                <i ng-show=menuOpen class="fa fa-times fa-2x"></i> 
+            </span> 
+        </a> 
+
+        <h2>Doctors Sales Report</h2> 
+        <div class="span6">
+            <div class="widget widget-nopad">
+                <div class="widget-header"> <i class="icon-list-alt"></i>
+                    <h3> Customers</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <div class="widget big-stats-container">
+                        <div class="widget-content" style="padding:5px;" ng-controller="customersReportsController">
+                            <div ng-show="data.success">
+
+                                <canvas id="line" class="chart chart-line" data="data.points"
+                                        labels="data.labels" legend="true" series="data.series">
+                                </canvas> 
+
+                            </div>
+                            <div ng-show="data.error" class="alert">
+                                <strong>Error!</strong> {{data.errorMsg}}
+                            </div>
+                        </div>
+                        <!-- /widget-content --> 
+
+                    </div>
+                </div>
+            </div>
+            <!-- /widget -->
+        </div>  
+
+        <div class="span6"> 
+            <div class="widget widget-nopad">
+                <div class="widget-header"> <i class="icon-list-alt"></i>
+                    <h3> Orders</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content" style="padding:5px;" ng-controller="ordersReportsController">
+                    <div ng-show="data.success">
+                        <canvas id="bar" class="chart chart-bar" data="data.points"  labels="data.labels"></canvas> 
+                    </div>
+                    <div ng-show="data.error" class="alert">
+                        <strong>Error!</strong> {{data.errorMsg}}
+                    </div>
+                </div>
+                <!-- /widget-content --> 
+            </div>
+            <!-- /widget -->
+        </div>
+        <!-- /span6 -->
+    </snap-content>
+</div>
+<!-- /row --> 

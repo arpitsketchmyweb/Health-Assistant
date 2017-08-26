@@ -1,0 +1,23 @@
+{
+	
+	"data":{
+		"firstName" : "Arpit",
+		"lastName" : "Jain",
+		"email": "arpitsketchmyweb@gmail.com",
+                "password": "pass"
+	},
+
+	"data":{
+		"firstName" : "Nipun",
+		"lastName" : "Jain",
+		"email": "nipun.arpit1989@gmail.com",
+                "password": "pass"
+	},
+
+	"data":{
+		"firstName" : "Neeraj",
+		"lastName" : "Jain",
+		"email": "jneeraj1961@gmail.com",
+                "password": "pass"
+	}
+}

@@ -1,0 +1,46 @@
+<div>	
+	<div>
+		<snap-drawer>
+		<div class=snap-menu> 
+			<div class="sidebar-header text-center"> 
+				<img src=images/flat-avatar.png class="sidebar-img img-circle"> 
+			</div>
+			<ul class=snap-ul> 
+				<li ng-class="{active: $state.includes('overview')}"><a ui-sref=overview>HOME</a></li> 
+				<li ng-class="{active: $state.includes('contact_list')}"><a ui-sref=contact_list>Patient List</a></li> 
+				<li><a ui-sref=login>LOGOUT</a></li>  
+			</ul> 
+		</div> 
+	</snap-drawer> 
+	<snap-dragger></snap-dragger> 
+	</div>
+	<snap-content snap-opt-tap-to-close=false>
+		<a snap-toggle=left ng-click="menuOpen = !menuOpen">
+			<span class=menutoggle> 
+				<i ng-hide=menuOpen class="fa fa-bars fa-2x"></i> 
+				<i ng-show=menuOpen class="fa fa-times fa-2x"></i> 
+			</span> 
+		</a> 
+		<div class=fr>
+			<h2>Overview Patient List</h2> 
+		</div> 
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-sm-4 col-md-3">
+					<ul class="contact_list">
+						<li class="contact_item" ng-repeat="contact in contactList"> 
+							<a href="#/dashboard-patient" ng-click="showplace(contact.name)">{{contact.name}}
+								<img class="img-circle" ng-src="{{contact.avatar}}" alt="" add-image-prop />
+								<span class="contact_content">
+									<h2>{{contact.name}}</h2>
+									<span class="text-muted">{{contact.company}}</span>
+									<small class="text-muted">{{contact.email}}</small>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</snap-content> 
+</div>
